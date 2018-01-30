@@ -4,7 +4,7 @@
 var Promise = require('bluebird');
 var {
   db,
-  Place, 
+  Place,
   Hotel,
   Restaurant,
   Activity
