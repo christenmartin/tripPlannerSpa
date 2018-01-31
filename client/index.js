@@ -42,11 +42,22 @@ fetch('/api')
       document.getElementById('activities-choices').append(option);
     })
 
-    const addButton = document.getElementsByClassName('options-btn');
-    console.log(addButton)
-    addButton.addEventListener('click', (event) => {
-      console.log(option.name)
-    })
+    const hotelButton = document.getElementById('hotels-add');
+    const restaurantButton = document.getElementById('restaurants-add');
+    const activityButton = document.getElementById('activities-add');
+
+   //  hotelButton.addEventListener('click', (event) => {
+   //    const hotelOptions = document.getElementsByTagName('option');
+   //    console.log(hotelOptions);
+   //  })
+   // restaurantButton.addEventListener('click', (event) => {
+
+   //  })
+   // activityButton.addEventListener('click', (event) => {
+
+   //  })
+    //add an flag / selector to the current hotel selected as the option.
+    //the hotel w/ the flag, if the hotelButton us pressed, we
   })
 
 
