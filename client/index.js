@@ -19,6 +19,29 @@ marker.addTo(map);
 fetch('/api')
   .then(result => result.json())
   .then(data => {
-    console.log(data)
+    //console.log(data.hotels[0].name)
+    const hotelNames = document.getElementById('hotels-choices');
+    const hotel = data.hotels
+    hotel.forEach(elem => {
+      const option = document.createElement('option');
+      option.append(elem.name);
+      document.getElementById('hotels-choices').append(option);
+    })
+    const restaurantNames = document.getElementById('restaurants-choices');
+    const restaurant = data.restaurants
+    restaurant.forEach(elem => {
+       const option = document.createElement('option');
+      option.append(elem.name);
+      document.getElementById('restaurants-choices').append(option);
+    })
+    const activityNames = document.getElementById('activities-choices');
+    const activity = data.activities
+    activity.forEach(elem => {
+       const option = document.createElement('option');
+      option.append(elem.name);
+      document.getElementById('activities-choices').append(option);
+    })
+
   })
+
   .catch(console.error)
