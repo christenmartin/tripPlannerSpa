@@ -42,6 +42,13 @@ fetch('/api')
       document.getElementById('activities-choices').append(option);
     })
 
+    const addButton = document.getElementsByClassName('options-btn');
+    console.log(addButton)
+    addButton.addEventListener('click', (event) => {
+      console.log(option.name)
+    })
   })
+
+
 
   .catch(console.error)
