@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const Sequelize = require('sequelize');
 //database
-var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false});
+var db = new Sequelize('postgres://localhost:5432/tripplanner', { logging: false});
 
 const Place = db.define('place', {
   address: {
@@ -22,16 +23,16 @@ const Place = db.define('place', {
     allowNull: false
   },
   location: {
-    type: Sequelize.ARRAY (Sequelize.TEXT),
+    type: Sequelize.ARRAY(Sequelize.TEXT),
     allowNull: false
   }
 });
 
 const Activity = db.define('activity', {
   name: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
-  age-range {
+  age_range: {
     type: Sequelize.STRING
   }
 });
@@ -44,7 +45,8 @@ const Hotel = db.define('hotel', {
     type: Sequelize.FLOAT,
     max: 5,
     min: 1
-  }
+  },
+  amenities: Sequelize.STRING
 })
 
 const Restaurant = db.define('restaurant', {
@@ -52,10 +54,10 @@ const Restaurant = db.define('restaurant', {
     type: Sequelize.STRING
   },
   cuisine: {
-    type: Sequelize.ARRAY(Sequelize.STRING)
+    type: Sequelize.STRING
   },
   price: {
-    type: Sequelize.RANGE(Sequelize.INTEGER),
+    type: Sequelize.INTEGER,
     max: 5,
     min: 1
   }
@@ -64,3 +66,5 @@ const Restaurant = db.define('restaurant', {
 Hotel.belongsTo(Place);
 Restaurant.belongsTo(Place);
 Activity.belongsTo(Place);
+
+module.exports = {db, Place, Hotel, Restaurant, Activity}
